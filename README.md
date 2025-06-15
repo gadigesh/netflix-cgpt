@@ -3,6 +3,10 @@
 - configaraion tailwind css 
   - npm install -D tailwindcss@3
   - npx tailwindcss init
+- Header
+- Login form
+- Signup Form
+- we can use formik for forms - https://formik.org/docs/overview
 
 # Features
 - Loin / Sign up
