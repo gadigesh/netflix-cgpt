@@ -4,9 +4,15 @@
   - npm install -D tailwindcss@3
   - npx tailwindcss init
 - Header
+- Routig of App
 - Login form
 - Signup Form
 - we can use formik for forms - https://formik.org/docs/overview
+- Form validation
+- useRef hook
+- firebase setup
+- Deploying our App to production
+- create sign up use account--- https://firebase.google.com/docs/auth/web/password-auth
 
 # Features
 - Loin / Sign up
