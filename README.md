@@ -13,6 +13,10 @@
 - firebase setup
 - Deploying our App to production
 - create sign up use account--- https://firebase.google.com/docs/auth/web/password-auth
+- Implemented sign in user Api
+- Created redux store with userslice
+- Implemented signout feature 
+- Update profile
 
 # Features
 - Loin / Sign up
