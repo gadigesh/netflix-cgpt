@@ -8,12 +8,11 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR, BACKGROUND } from "../utils/Constant";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -26,13 +25,7 @@ const Login = () => {
 
   const handalleButtonClick = () => {
     // Form validation
-    console.log(isSignInForm, name);
     //if () return null;
-    console.log(
-      "Attempting login with:",
-      email.current.value,
-      password.current.value
-    );
     const message =
       name.current === null
         ? checkValidateData(
@@ -57,10 +50,9 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://avatars.githubusercontent.com/u/98770444?v=4",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // Profile updated!
@@ -73,7 +65,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/Browse");
             })
             .catch((error) => {
               // An error occurred
@@ -94,8 +85,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-          navigate("/Browse");
         })
         .catch((error) => {
           setErrorMessage("Inalid credinatial");
@@ -106,10 +95,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute ">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/7968847f-3da9-44b3-8bbb-13a46579881f/web/IN-en-20250609-TRIFECTA-perspective_32b70b51-20d4-46db-8a1a-3d5428be5f0e_large.jpg"
-          alt="Background"
-        />
+        <img src={BACKGROUND} alt="Background" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
