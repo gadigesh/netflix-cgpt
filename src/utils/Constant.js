@@ -12,3 +12,11 @@ export const API_OPTIONS = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMWQxYzkzZTVjYTYxNjRiODE2N2VkM2MzMjNiNTYwYyIsIm5iZiI6MTc1MDIwNTA2Ny4xNjUsInN1YiI6IjY4NTIwMjhiMjA3NTBlMjVkMGI2ZTM3MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XYWRj0RFJAHMydsM5hg95bNZ3tT3zA_YAgS2RmQDUN4",
   },
 };
+
+export const IMG_CDNURL = "https://image.tmdb.org/t/p/w500";
+
+export const SUPPORTED_LANG = [
+  { identifier: "En", name: "English" },
+  { identifier: "Kannada", name: "Kannada" },
+  { identifier: "Spanish", name: "Spanish" },
+];

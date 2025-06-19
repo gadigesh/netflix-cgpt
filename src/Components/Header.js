@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useEffect } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
@@ -6,12 +6,15 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../utils/userSlice";
-import { LOGO, USER_AVATAR } from "../utils/Constant";
+import { LOGO, SUPPORTED_LANG, USER_AVATAR } from "../utils/Constant";
+import { toggleGptSearchView } from "../utils/gptSlice";
+import { changeLang } from "../utils/configSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  const gptValue = useSelector((store) => store.gpt.showGptSearch);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -48,14 +51,44 @@ const Header = () => {
         navigate("/Error");
       });
   };
+  const handleGptSearch = () => {
+    //toglle GPT search
+    dispatch(toggleGptSearchView());
+  };
+  const handleLangChange = (e) => {
+    dispatch(changeLang(e.target.value));
+  };
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
+    <div className=" fixed w-screen px-8 py-2 bg-gradient-to-b from-black flex justify-between transition-colors duration-300 bg-transparent z-50">
       <img className="w-44 m-2 p-2" src={LOGO} alt="logo" />
       {user && (
         <div className="flex items-center">
-          <img className="w-9" src={user?.photoURL} alt="user logo" />
-          <button className="p-1 bg-red-600" onClick={handleSignOut}>
-            (Sign Out)
+          <button
+            className="p-2 mx-2 cursor-pointer rounded-sm bg-white"
+            onClick={handleGptSearch}
+          >
+            {gptValue ? "HomePage" : "GPT Search"}
+          </button>
+          {gptValue && (
+            <select
+              className="px-4 py-2 mx-2 cursor-pointer rounded-sm bg-white"
+              onChange={handleLangChange}
+            >
+              {SUPPORTED_LANG.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+          )}
+          <div className="p-2 mx-2 rounded-sm bg-green-200">
+            {user?.displayName}
+          </div>
+          <button
+            className="p-2 mx-2 cursor-pointer rounded-sm w-32 bg-red-500"
+            onClick={handleSignOut}
+          >
+            Sign Out
           </button>
         </div>
       )}

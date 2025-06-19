@@ -31,6 +31,14 @@
 - update the store with trailer video 
 - Embeded the youtube video and make it auto play
 - Tailwind class to make main container awesome
+- build secondary components
+- Build movie list
+- Build Movie card
+- TMDB Image CDN URL
+- Created custom hooks(popular,nowplaying,toprated,upcoming)
+- GPT search page
+- GPT Search bar
+- Multi - lang feature 
 
 # Features
 - Loin / Sign up
