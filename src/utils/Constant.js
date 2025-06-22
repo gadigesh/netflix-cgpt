@@ -20,3 +20,5 @@ export const SUPPORTED_LANG = [
   { identifier: "Kannada", name: "Kannada" },
   { identifier: "Spanish", name: "Spanish" },
 ];
+
+export const OPENAI_API_KEY = process.env.OPENAI_API_KEY;

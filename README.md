@@ -39,6 +39,14 @@
 - GPT search page
 - GPT Search bar
 - Multi - lang feature 
+- Gpt openai key
+- Gpt open api call
+- Fetched movie suggestion from TMDB
+- Gpt slice added data 
+- Memoization 
+- Adding .env file 
+- Addinf env file to gitignore
+- We made site Responsive
 
 # Features
 - Loin / Sign up

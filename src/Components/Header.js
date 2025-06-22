@@ -44,6 +44,7 @@ const Header = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
+        navigate("/");
         // Sign-out successful.
       })
       .catch((error) => {
@@ -59,8 +60,8 @@ const Header = () => {
     dispatch(changeLang(e.target.value));
   };
   return (
-    <div className=" fixed w-screen px-8 py-2 bg-gradient-to-b from-black flex justify-between transition-colors duration-300 bg-transparent z-50">
-      <img className="w-44 m-2 p-2" src={LOGO} alt="logo" />
+    <div className="absolute md:fixed w-screen px-8 py-2 bg-gradient-to-b from-gray-800 md:from-black flex flex-col md:flex-row items-center justify-between transition-colors duration-300 bg-transparent z-50">
+      <img className="w-32 md:w-44 m-2 p-2" src={LOGO} alt="logo" />
       {user && (
         <div className="flex items-center">
           <button
@@ -81,7 +82,7 @@ const Header = () => {
               ))}
             </select>
           )}
-          <div className="p-2 mx-2 rounded-sm bg-green-200">
+          <div className="p-2 mx-2 rounded-sm bg-green-200 hidden md:flex">
             {user?.displayName}
           </div>
           <button
