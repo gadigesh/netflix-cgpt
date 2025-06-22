@@ -2,9 +2,10 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
+  if (!movies) return null;
   return (
     <div className="px-6">
-      <h1 className="py-4 text-white text-2xl">{title}</h1>
+      <h1 className="py-4 text-white text-xl md:text-2xl">{title}</h1>
       <div
         className="flex overflow-x-scroll cursor-pointer"
         style={{
