@@ -21,4 +21,5 @@ export const SUPPORTED_LANG = [
   { identifier: "Spanish", name: "Spanish" },
 ];
 
-export const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+export const OPENAI_KEY =
+  "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";
