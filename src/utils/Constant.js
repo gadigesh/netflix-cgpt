@@ -14,8 +14,7 @@ export const API_OPTIONS = {
 };
 
 export const IMG_CDNURL = "https://image.tmdb.org/t/p/w500";
-export const OPENAI_KEY =
-  "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";
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
 
 export const SUPPORTED_LANG = [
   { identifier: "En", name: "English" },
